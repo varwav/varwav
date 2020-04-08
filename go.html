@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Word game </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            form {
+                font-size: 1.5em;
+            }
+            .scrambled, butter {
+                font-family: monospace;
+                font-size: 2em;
+            }
+            #result {
+                color:blue;
+                font-size:3em;
+                background:yellow;
+                margin: 10px;
+                width:300px;
+                height:100px;
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+    <h1>猜猜看</h1>
+    <form id="joke-form">
+        <label>
+            重新排列这些汉字，组成一句话<Br>
+            <span class="scrambled">吃想屎我</span>
+            <br>
+            <input type="text" size="10">
+        </label>
+        <button type="submit">好啦，走你</button>
+    </form>
+<div id="result">  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        // when the user submits the form,
+        $("#joke-form").on("submit",function(event){
+           //   check that their answer is correct
+           event.preventDefault();
+           $answer = $(this).find("[type=text]");
+           var answer =$answer.val();
+           if(answer === "我想吃屎") {
+               //  and show them appropriate message
+               $("#result").text("你真棒")
+           } else {
+               $("#result").text("大笨蛋")
+           }
+        })
+          
+    </script>
+    </body>
+</html>
